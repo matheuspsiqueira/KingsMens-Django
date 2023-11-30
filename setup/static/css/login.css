@@ -1,0 +1,80 @@
+/* CSS LOGIN START */
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: linear-gradient(to bottom right, black ,rgb(49, 35, 0), black);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 280px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0, 0, 0, 0.445) !important;
+}
+
+.card-header h3{
+color: white;
+text-align: center;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+margin-top: 20px;
+}
+
+.login_btn:hover{
+color: #FFC312;
+background-color: black;
+cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: #FFC312;
+}
+/* CSS LOGIN END */
+
+@media (max-width: 768px) {
+    .card{
+        width: 600px;
+    }
+    
+}

@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{% static '/img/logo.png' %}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/produtos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/alerta.css' %}">
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+    <div style="font-size: 20px; padding-left: 10px;">{% include 'partials/_alertas.html' %}</div>
+    <div class="container">
+        <h1>Cadastro de Produto</h1>
+        <form action="{% url 'cadastrar' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nome_produto">Nome do Produto:</label>
+                <input type="text" id="nome" name="nome" placeholder="Bermuda Jeans - Azul" required>
+            </div>
+            <div class="form-group">
+                <label for="file">Categoria:</label>
+                <input type="text" id="descricao" name="categoria" placeholder="Bermuda, Calça, Camisa, etc." required>
+            </div>
+            <div class="form-group">
+                <label for="file">Imagem 1:</label>
+                <input type="file" id="imagem1" name="imagem1" required>
+            </div>
+            <div class="form-group">
+                <label for="file">Imagem 2:</label>
+                <input type="file" id="imagem2" name="imagem2" required>
+            </div>
+            <div class="form-group">
+                <label for="file">Preço:</label>
+                <input type="number" step=".01" id="preco" name="preco" placeholder="59,90" required>
+            </div>
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+    </div>
+</body>
+</html>
