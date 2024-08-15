@@ -1,0 +1,599 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KingsMen's</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/logo.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+
+  <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">Kingsmens@gmail.com</a>
+        <i class="bx bx-phone phone-icon"></i> +55 (21) 1234-5678
+      </div>
+      <div class="social-links d-none d-md-block">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="{% url 'index' %}" style=color:rgb(255,220,23)>KingsMen's</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          {% if user.is_authenticated %}
+            <li><a class="nav-link scrollto active" href="#hero">Início</a></li>
+            <li><a class="nav-link scrollto" href="#about">Sobre</a></li>
+            <li><a class="nav-link scrollto" href="#services">Serviços</a></li>
+            <li><a class="nav-link scrollto " href="#destaques">Destaques</a></li>
+            <li><a class="nav-link scrollto" href="#team">Time</a></li>
+            <li><a class="nav-link" href="{% url 'catalogo' %}?categoria=todos" data-category="todos" id="todos-link">Catálogo</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+            <li><a class="nav-link scrollto active" href="#hero">Início</a></li>
+            <li><a class="nav-link scrollto" href="#about">Sobre</a></li>
+            <li><a class="nav-link scrollto" href="#services">Serviços</a></li>
+            <li><a class="nav-link scrollto " href="#destaques">Destaques</a></li>
+            <li><a class="nav-link scrollto" href="#team">Time</a></li>
+            <li><a class="nav-link" href="{% url 'catalogo' %}?categoria=todos" data-category="todos" id="todos-link">Catálogo</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'cadastro' %}">Cadastro</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  
+  
+  
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+      <h1>Bem-vindo a <i style=color:rgb(255,220,23) >KingsMen's</i></h1>
+      <h2>Nós somos uma revendedora autorizada de grandes marcas de roupas.</h2>
+      <a href="#about" class="btn-get-started scrollto">Sobre Nós</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+            <img src="{% static 'img/about.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+            <h3>Somos altamente comprometios com a qualidade dos produtos que revendemos</h3>
+            <p class="fst-italic">
+              Nós usamos o que anunciamos!
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Equipe especializada em qualidade.</li>
+              <li><i class="bi bi-check-circle"></i> Funcionários dedicados no atendimento ao cliente.</li>
+              <li><i class="bi bi-check-circle"></i> Somos referência na indústria da moda.</li>
+            </ul>
+            <p>
+              Como uma renomada revendedora de roupas de marca, oferecemos uma seleção cuidadosamente curada das últimas tendências das passarelas. Nossa coleção sofisticada e diversificada de peças icônicas proporciona uma experiência de compra única, permitindo que você expresse sua individualidade com confiança. Descubra a excelência em qualidade e design enquanto navegamos juntos pelo mundo da moda de alto padrão. Bem-vindo ao luxo acessível. Bem-vindo à nossa loja.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up">
+            <div class="box">
+              <h4>Seleção Exclusiva de Marcas de Prestígio</h4>
+              <p>Nossa loja se destaca por oferecer uma seleção criteriosa de roupas de marcas renomadas.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+            <div class="box">
+              <h4>Elegância e Sofisticação</h4>
+              <p>Um verdadeiro santuário da elegância, onde os clientes podem explorar uma variedade de estilos que refletem a sofisticação atemporal.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="box">
+              <h4>Luxo Acessível para Todos</h4>
+              <p> Acreditamos que o luxo deve ser acessível a todos os que valorizam a qualidade e o design.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row d-flex align-items-center">
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{% static 'img/clients/reserva.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{% static 'img/clients/lacoste.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{% static 'img/clients/dudalina.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{% static 'img/clients/tommy.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{% static 'img/clients/levis.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{% static 'img/clients/rolex.png' %}" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Serviços</span>
+          <h2>Serviços</h2>
+          <p>Alguns dos nossos principais serviços para você.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Entrega Rápida e Segura</a></h4>
+              <p>Receba suas compras com rapidez e segurança.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Ajustes Sob Medida</a></h4>
+              <p>Nossos alfaiates garantem um ajuste perfeito para suas roupas.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Styling Personalizado</a></h4>
+              <p>Nossos consultores criam conjuntos únicos que refletem seu estilo.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4><a href="">Tendências Atuais</a></h4>
+              <p>Fique atualizado com nossas dicas de moda.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-slideshow"></i></div>
+              <h4><a href="">Eventos VIP</a></h4>
+              <p>Acesso a lançamentos e experiências exclusivas.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-arch"></i></div>
+              <h4><a href="">Programa de Fidelidade</a></h4>
+              <p>Ganhe pontos e desfrute de vantagens especiais.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="text-center">
+          <h3>Entre em contato com um de nossos vendedores</h3>
+          <p> Temos uma equipe especializada em atendimento e moda para te auxiliar com possíveis dúvidas na hora da compra e também ajudar com algumas dicas de estilo.</p>
+          <a class="cta-btn" href="#contato">Contato</a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="destaques" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Principais Peças</span>
+          <h2>Principais Peças</h2>
+          <p>Aqui destacamos as principais peças da atualidade no mundo da moda.</p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Todos</li>
+              <li data-filter=".filter-camisa">Camisas</li>
+              <li data-filter=".filter-calça">Calças</li>
+              <li data-filter=".filter-calçado">Calçados</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-camisa">
+            <img src="{% static 'img/portfolio/reserva-social.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Camisa Social Reserva</h4>
+              <p>R$ 199,99</p>
+              <a href="{% static 'img/portfolio/reserva-social.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Camisa Social Reserva"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-calçado">
+            <img src="{% static 'img/portfolio/tenis-levis-masculino.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Tênis Masculino Levi's Casual</h4>
+              <p>R$ 199,99</p>
+              <a href="{% static 'img/portfolio/tenis-levis-masculino.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Tênis Masculino Levi's Casual"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-camisa">
+            <img src="{% static 'img/portfolio/camisa-lacoste.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Camisa Masculina Lacoste</h4>
+              <p>R$ 139,99</p>
+              <a href="{% static 'img/portfolio/camisa-lacoste.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Camisa Masculina Lacoste"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-calça">
+            <img src="{% static 'img/portfolio/calça-lacoste.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Calça de Moletom Lacoste</h4>
+              <p>R$ 349,99</p>
+              <a href="{% static 'img/portfolio/calça-lacoste.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Calça de Moletom Lacoste"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-calçado">
+            <img src="{% static 'img/portfolio/sapato-social-reserva.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Sapato Social Reserva</h4>
+              <p>R$ 319,90</p>
+              <a href="{% static 'img/portfolio/sapato-social-reserva.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Sapato Social Reserva"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-camisa">
+            <img src="{% static 'img/portfolio/camisa-tommy-masculina.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Camisa Masculina Tommy Hilfiger</h4>
+              <p>R$ 169,90</p>
+              <a href="{% static 'img/portfolio/camisa-tommy-masculina.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Camisa Masculina Tommy Hilfiger"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-calça">
+            <img src="{% static 'img/portfolio/calça-tommy-feminina.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Calça Feminina Tommy Hilfiger</h4>
+              <p>R$ 199,99</p>
+              <a href="{% static 'img/portfolio/calça-tommy-feminina.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Calça Feminina Tommy Hilfiger"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-calça">
+            <img src="{% static 'img/portfolio/calça-tommy.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Calça Masculina Tommy Hilfiger</h4>
+              <p>R$ 429,90</p>
+              <a href="{% static 'img/portfolio/calça-tommy.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Calça Masculina Tommy Hilfiger"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-calçado">
+            <img src="{% static 'img/portfolio/tenis-lacoste.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Tênis Lacoste</h4>
+              <p>R$ 349,90</p>
+              <a href="{% static 'img/portfolio/tenis-lacoste.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Tênis Lacoste"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Nosso Time</span>
+          <h2>Nosso Time</h2>
+          <p>Contamos com profissionais altamenta qualificados e antenados no mundo da moda.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
+            <div class="member">
+              <img src="{% static 'img/team/team-1.jpg' %}" alt="">
+              <h4>Walter White</h4>
+              <span>Fundador da KingsMen's</span>
+              <p>
+                Walter é a mente visionária por trás de tudo. Sua paixão pela moda refinada inspira nossa jornada, trazendo um toque de exclusividade a cada peça e experiência que oferecemos.
+              </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
+            <div class="member">
+              <img src="{% static 'img/team/team-2.jpg' %}" alt="">
+              <h4>Sarah Jhinson</h4>
+              <span>Especialista em moda masculina</span>
+              <p>
+                Com sua abordagem à moda masculina, traz uma perspectiva fresca e criativa para cada visual, garantindo que cada cliente masculino se destaque com estilo e autenticidade.
+              </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
+            <div class="member">
+              <img src="{% static 'img/team/team-3.jpg' %}" alt="">
+              <h4>William Anderson</h4>
+              <span>Estilista masculino</span>
+              <p>
+                Como estilista masculino, Willian incorpora sofisticação a cada detalhe, criando visuais distintos que capturam a essência individual de cada homem, proporcionando confiança e estilo.
+              </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Contato</span>
+          <h2>Contato</h2>
+          <p>Ficou com alguma dúvida? Entre em contato conosco</p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Nosso Endereço</h3>
+              <p>Rua Coronel Carlos Matos, 65, Centro, Nova Iguaçu, RJ, 26210-200</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email</h3>
+              <p><a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRttWZqZqjQZKwLkBSmSvCLRsxjNKckJSVvVvZzPTvnsPGZNCdsmrdXwcGXNPRTvnzKXTZL" class="email">kingsmens@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Número</h3>
+              <p>+55 (21) 91234-5678</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" data-aos="fade-up">
+
+          <div class="col-lg-6 ">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.2670755910963!2d-43.45362992374749!3d-22.755467732482376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9967a836ec1717%3A0xa95645e95876b35f!2sR.%20Cel.%20Carlos%20Matos%2C%2065%20-%20Centro%2C%20Nova%20Igua%C3%A7u%20-%20RJ%2C%2026210-200!5e0!3m2!1spt-BR!2sbr!4v1698879904748!5m2!1spt-BR!2sbr" width="513" height="378" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="col-lg-6">
+            <form action="" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Menssagem" required></textarea>
+              </div>
+              <br>
+              <div class="text-center"><button type="submit">Enviar</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>KingsMen's</h3>
+              <p>
+                Rua Coronel Carlos Matos, 65 <br>
+                Centro, Nova Iguaçu - RJ<br><br>
+                <strong>Núnemro:</strong> +55 (21) 91234-5678<br>
+                <strong>Email: </strong><a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRttWZqZqjQZKwLkBSmSvCLRsxjNKckJSVvVvZzPTvnsPGZNCdsmrdXwcGXNPRTvnzKXTZL">kingsmens@gmail.com</a><br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Fique por dentro de todas as novidades da nossa loja.</p>
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="Digite seu melhor email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy;2023 Copyright <strong><span>KingsMen's</span></strong>. Todos os direitos reservados
+      </div>
+      <div class="credits">
+        Desenvolvido por Grupo MILL
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <script src="{% static '/js/main.js' %}"></script>
+
+<script>
+  // Função para redirecionar para a segunda página com a categoria "Todos" selecionada
+  function redirectToSecondPageWithCategory() {
+    window.location.href = './catalogo.html?category=todos';
+  }
+</script>
+
+
+</body>
+
+</html>

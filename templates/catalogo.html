@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KingsMen's - Catálogo</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static '/img/logo.png' %}" rel="icon">
+  <link href="{% static '/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static '/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static '/css/catalogo2.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="{% url 'index' %}" style=color:rgb(255,220,23)>KingsMen's</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      
+      <nav id="navbar" class="navbar">
+        <ul>
+            {% if user.is_authenticated %}
+              <li><a class="scrollto active" href="{% url 'index' %}#hero">Início</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#about">Sobre</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#services">Serviços</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#destaques">Destaques</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#team">Time</a></li>
+              <li><a class="nav-link" href="{% url 'catalogo' %}?categoria=todos" data-category="todos" id="todos-link">Catálogo</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#contact">Contato</a></li>
+              <li><a class="scrollto" href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+              <li><a class="scrollto active" href="{% url 'index' %}#hero">Início</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#about">Sobre</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#services">Serviços</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#destaques">Destaques</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#team">Time</a></li>
+              <li><a class="nav-link" href="{% url 'catalogo' %}?categoria=todos" data-category="todos" id="todos-link">Catálogo</a></li>
+              <li><a class="scrollto" href="{% url 'index' %}#contact">Contato</a></li>
+              <li><a class="scrollto" href="{% url 'login' %}">Login</a></li>
+              <li><a class="scrollto" href="{% url 'cadastro' %}">Cadastro</a></li>
+            {% endif %}
+          </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <div class="cart-container">
+        <a href="{% url 'carrinho' %}"><i class="bi bi-cart" id="navbar"></i></a>
+    </div>
+    </div>
+  </header>
+
+<!-- Início da segunda barra de navegação com as classes renomeadas -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-dark-custom-2">
+  <div class="clearfix">
+    <!-- Botões e links da barra de navegação -->
+    <!-- Os links terão atributos data-category para identificar a categoria -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'catalogo' %}?categoria=todos" data-category="todos" id="todos-link">Todos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'catalogo' %}?categoria=camisas" data-category="camisas" id="camisas-link">Camisas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'catalogo' %}?categoria=camisetas" data-category="camisetas" id="camisetas-link">Camisetas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'catalogo' %}?categoria=casacos" data-category="casacos" id="casacos-link">Casacos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'catalogo' %}?categoria=calças" data-category="calças" id="catalogos-link">Calças</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'catalogo' %}?categoria=bermudas" data-category="bermudas" id="catalogos-link">Bermudas</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'catalogo' %}?categoria=botas" data-category="botas" id="botas-link">Calçados</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'catalogo' %}?categoria=acessorios" data-category="acessorios" id="acessorios-link">Acessórios</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+<!-- Fim da segunda barra de navegação com as classes renomeadas -->
+
+<!-- Conteúdo dos produtos para cada categoria -->
+<div class="product-category">
+  {% include 'partials/_alertas.html' %}
+    <div class="row">
+        {% for produto in produtos %}
+        <div class="col-md-3 card-container">
+            <div class="card h-100 d-flex  flex-column">
+                <div class="image-container" onmouseover="hoverImage(this)" onmouseout="unhoverImage(this)">
+                    <img src="{{ produto.imagem1.url }}" data-hover="{{ produto.imagem2.url }}" class="card-img-top product-image" alt="Bermuda">
+                </div>
+                <div class="card-body flex-grow-1">
+                    <h5 class="card-title">{{ produto.nome_produto }}</h5>
+                    <p class="card-text normal-price">Frete grátis</p>
+                    <p class="card-text promo-price">R$ <strong>{{ produto.preco }}</strong></p>
+                    <form action="{% url 'adicionar_ao_carrinho' produto.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-custom add-to-cart" data-price="59.90">Adicionar ao Carrinho</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!--footer-->
+<footer id="footer">
+  <div class="container">
+    <div class="copyright">
+      &copy;2023 Copyright <strong><span>KingsMen's</span></strong>. Todos os direitos reservados
+    </div>
+    <div class="credits">
+      Desenvolvido por Grupo MILL
+    </div>
+  </div>
+</footer>
+<!-- End Footer -->
+
+<script>
+// Função para exibir o alerta
+function exibirAlerta() {
+    alert("Produto adicionado ao carrinho");
+  }
+
+  // Aguarde o carregamento do DOM antes de associar eventos aos botões
+  document.addEventListener("DOMContentLoaded", function () {
+    // Selecione todos os botões com a classe 'add-to-cart'
+    const botoesAdicionarAoCarrinho = document.querySelectorAll(".add-to-cart");
+
+    // Adicione um ouvinte de eventos a cada botão
+    botoesAdicionarAoCarrinho.forEach(function (botao) {
+      botao.addEventListener("click", function () {
+        // Chame a função para exibir o alerta quando o botão for clicado
+        exibirAlerta();
+      });
+    });
+  });
+
+
+function hoverImage(element) {
+    const imgElement = element.querySelector('img');
+    imgElement.setAttribute('data-original', imgElement.src);
+    imgElement.src = imgElement.getAttribute('data-hover');
+}
+
+function unhoverImage(element) {
+    const imgElement = element.querySelector('img');
+    imgElement.src = imgElement.getAttribute('data-original') || imgElement.getAttribute('src');
+}
+
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

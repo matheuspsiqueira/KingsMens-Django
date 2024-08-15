@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/cadastro.css' %}">
+    <title>KingsMens - Login</title>
+    <link href="{% static '/img/logo.png' %}" rel="icon">
+    <link href="{% static '/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="{% static '/img/homemelegante.png' %}" alt="" style="height: 550px;">
+        </div>
+        <div class="form">
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Login</h1>
+                    </div>
+                    <div class="login-button">
+                        <button style="margin-right: 15px;"><a href="{% url 'index' %}">Início</a></button>
+                        <button><a href="{% url 'cadastro' %}">Cadastre-se</a></button>
+                    </div>
+                </div>
+                {% include 'partials/_alertas.html' %}
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" name="email" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="input-box">
+                        <label style="margin-left: 15px;" for="password">Senha</label>
+                        <input style="margin-left: 15px;" id="password" type="password" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                </div>
+
+
+                <div class="continue-button">
+                    <button type="submit">Continuar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

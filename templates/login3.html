@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="{% static '/img/logo.png' %}" rel="icon">
+
+	<title>KingsMen's - Login</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="{% static '/css/bootstrap-login.css' %}">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="{% static '/css/font-login' %}">
+	<link rel="stylesheet" href="{% static '/css/font-awesome.css' %}">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static '/css/login3.css' %}">
+
+</head>
+<body>         
+
+<div class="container">
+	{% include 'partials/_alertas.html' %}
+
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Login</h3>
+				<a href="{% url 'index' %}"><span>Voltar</span></a>
+			</div>
+			<div class="card-body">
+				<form action="{% url 'login' %}" method="POST">
+					{% csrf_token %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Email" name="email">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="Senha" name="senha">
+					</div>
+					<div class="row align-items-center remember">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn float-right login_btn">Login</button>
+					</form>
+					<form action="{% url 'cadastro' %}">
+						{% csrf_token %}
+						<button type="submit" class="btn float-left cad_btn">Cadastre-se</button>
+					</form>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
