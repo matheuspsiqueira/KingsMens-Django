@@ -113,7 +113,7 @@
         <div class="col-md-3 card-container">
             <div class="card h-100 d-flex  flex-column">
                 <div class="image-container" onmouseover="hoverImage(this)" onmouseout="unhoverImage(this)">
-                    <img src="{{ produto.imagem1.url }}" data-hover="{{ produto.imagem2.url }}" class="card-img-top product-image" alt="Bermuda">
+                    <img src="{{ produto.imagem1.url }}" data-hover="{{ produto.imagem2.url }}" class="card-img-top product-image" alt="{{ produto.categoria }}">
                 </div>
                 <div class="card-body flex-grow-1">
                     <h5 class="card-title">{{ produto.nome_produto }}</h5>

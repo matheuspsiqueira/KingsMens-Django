@@ -4,8 +4,8 @@ class Produto(models.Model):
     nome_produto = models.CharField(max_length=200)
     categoria = models.CharField(max_length=100)
     preco = models.DecimalField(max_digits=6, decimal_places=2)
-    imagem1 = models.ImageField(upload_to='', blank=True)
-    imagem2 = models.ImageField(upload_to='', blank=True)
+    imagem1 = models.ImageField(upload_to='/media/', blank=True)
+    imagem2 = models.ImageField(upload_to='/media/', blank=True)
     def __str__(self):
         return self.nome_produto
 
